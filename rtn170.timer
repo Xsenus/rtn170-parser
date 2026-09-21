@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly refresh of active Rostekhnadzor 170-FZ licenses
+
+[Timer]
+OnCalendar=Sun *-*-* 03:00:00 Europe/Moscow
+RandomizedDelaySec=900
+Persistent=true
+Unit=rtn170.service
+
+[Install]
+WantedBy=timers.target

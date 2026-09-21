@@ -1,0 +1,23 @@
+[Unit]
+Description=Resume Rostekhnadzor 170-FZ crawl %i
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=rtn170
+Group=rtn170
+WorkingDirectory=/opt/rtn170
+EnvironmentFile=/etc/rtn170.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/rtn170/.venv/bin/python /opt/rtn170/rtn170_parser.py crawl --resume %i --delay 3
+TimeoutStartSec=infinity
+TimeoutStopSec=90
+Restart=no
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+UMask=0077
