@@ -5,6 +5,14 @@
 [gosnadzor.ru](https://www.gosnadzor.ru/service/list/reestr_licences_170fz/).
 Данные сохраняются в отдельную схему PostgreSQL `rtn170_shared`.
 
+Единый запуск и подготовка PostgreSQL-поставок всех трёх источников находятся
+в [unified-registry-parser](https://github.com/Xsenus/unified-registry-parser).
+В проверенном снимке от 23.09.2026 — 6 060 лицензий. Вариант по исходной схеме
+заказчика сохраняет все 10 таблиц RTN; исходное представление `active_licenses`
+выбирает 6 040 строк «Действующая», остальные 20 строк «Возобновлена» доступны
+в `licenses`. [Описание поставки](https://github.com/Xsenus/unified-registry-parser/blob/main/DELIVERY_RU.md).
+Обновление документации от 09.10.2026 не является новым сбором.
+
 ## Возможности
 
 - извлечение всех полей карточки лицензии, адресов и видов работ;
